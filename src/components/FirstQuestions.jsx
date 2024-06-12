@@ -15,6 +15,8 @@ No Matches:
   Display a friendly message if no items match the search term
 */
 
+import { useState } from "react";
+
 function FirstQuestions() {
   const fruits = [
     "Apple",
@@ -30,9 +32,35 @@ function FirstQuestions() {
     "Grape",
     "GrapeFurit",
   ];
+
+  const [fruitsData, setfruitsData] = useState(fruits);
+  const [searchTerm, serSearchTerm] = useState("");
+
+  const handleInputChange = (e) => {
+    serSearchTerm(e.target.value);
+    console.log(searchTerm);
+  };
+  const fruitsDataFiltered = fruitsData.filter((fruit) =>
+    fruit.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <div>
-      <input type="text" placeholder="Search Here....." />
+      <input
+        type="text"
+        placeholder="Search Here....."
+        onChange={handleInputChange}
+      />
+      {fruitsDataFiltered.length > 0 ? (
+        fruitsDataFiltered.map((fruit, index) => {
+          return (
+            <div key={index}>
+              <p>{fruit}</p>
+            </div>
+          );
+        })
+      ) : (
+        <p>No fruits match your search term.</p>
+      )}
     </div>
   );
 }
