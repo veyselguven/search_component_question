@@ -1,5 +1,3 @@
-import FirstQuestions from "./components/FirstQuestions";
-import "./App.css";
 /* 
 
 Initial Setup:
@@ -16,12 +14,27 @@ Real-Time Filtering:
 No Matches:
   Display a friendly message if no items match the search term
 */
-function App() {
+
+function FirstQuestions() {
+  const fruits = [
+    "Apple",
+    "Apricot",
+    "Banana",
+    "Blueberry",
+    "Cherry",
+    "Cramberry",
+    "Date",
+    "Dragonfruit",
+    "Elderberry",
+    "Fig",
+    "Grape",
+    "GrapeFurit",
+  ];
   return (
-    <div className="App">
-      <FirstQuestions />
+    <div>
+      <input type="text" placeholder="Search Here....." />
     </div>
   );
 }
 
-export default App;
+export default FirstQuestions;
