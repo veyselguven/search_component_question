@@ -33,11 +33,11 @@ function FirstQuestions() {
     "GrapeFurit",
   ];
 
-  const [fruitsData, setfruitsData] = useState(fruits);
-  const [searchTerm, serSearchTerm] = useState("");
+  const [fruitsData, setFruitsData] = useState(fruits);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (e) => {
-    serSearchTerm(e.target.value);
+    setSearchTerm(e.target.value);
     console.log(searchTerm);
   };
   const fruitsDataFiltered = fruitsData.filter((fruit) =>
@@ -46,6 +46,7 @@ function FirstQuestions() {
   return (
     <div>
       <input
+        value={searchTerm}
         type="text"
         placeholder="Search Here....."
         onChange={handleInputChange}
